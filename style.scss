@@ -2,6 +2,7 @@
 
 body {
   background-color: rgb(222, 233, 235);
+  font-family: "Inter", sans-serif;
 }
 
 main {
@@ -33,7 +34,7 @@ main {
   }
 }
 
-.encriptButton {
+.encryptButton {
   font-family: inherit;
   width: 120px;
   height: 44px;
@@ -52,7 +53,5 @@ main {
 }
 
 .standByGraphics {
-  background-color: green;
-  width: 100px;
-  height: 100px;
+  display: block;
 }

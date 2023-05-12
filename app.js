@@ -1,11 +1,11 @@
 // convert text into an array separated by spaces
-function encriptor(text) {
+function encryptor(text) {
   let toArray = text.toLowerCase().split("");
 
-  // every array to be encripted
+  // every array to be encrypted
 
   // loop
-  let encriptedArray = toArray.map((letter) => {
+  let encryptedArray = toArray.map((letter) => {
     //rules
     if (letter === "a") {
       return (letter = "ai");
@@ -30,12 +30,12 @@ function encriptor(text) {
     }
   });
 
-  encriptedString = encriptedArray.join("");
-  displayResult(encriptedString);
+  encryptedString = encryptedArray.join("");
+  displayResult(encryptedString);
 }
 
-function desencriptor(text) {
-  desencriptedString = text
+function dencryptor(text) {
+  dencryptedString = text
     .toLowerCase()
     .replaceAll("ai", "a")
     .replaceAll("enter", "e")
@@ -43,12 +43,12 @@ function desencriptor(text) {
     .replaceAll("ober", "o")
     .replaceAll("ufat", "u");
 
-  displayResult(desencriptedString);
+  displayResult(dencryptedString);
 }
 
 // declare sideResult DOMS
 const resultDOM = document.getElementById("displayResult");
-const standByGraphics = document.getElementById("standByGraphics");
+let standByGraphics = document.getElementById("standByGraphics");
 
 // trigger result
 function displayResult(result) {
@@ -56,17 +56,17 @@ function displayResult(result) {
   standByGraphics.style.display = none;
 }
 
-// get submit button and launch encriptor function
+// get submit button and launch encryptor function
 const userInput = document.getElementById("userInput");
 
-let encriptButton = document.getElementById("encriptButton");
-encriptButton.addEventListener("click", function () {
-  encriptor(userInput.value);
+let encryptButton = document.getElementById("encryptButton");
+encryptButton.addEventListener("click", function () {
+  encryptor(userInput.value);
 });
 
-let desencriptButton = document.getElementById("desencriptButton");
-desencriptButton.addEventListener("click", function () {
-  desencriptor(userInput.value);
+let dencryptButton = document.getElementById("dencryptButton");
+dencryptButton.addEventListener("click", function () {
+  dencryptor(userInput.value);
 });
 
 // change icons when is empty
@@ -75,10 +75,29 @@ const emptyTextarea = document.getElementById("userInput");
 emptyTextarea.addEventListener("input", emptyGraphics);
 
 function emptyGraphics() {
-  let text = this.value;
+  //parameters
+  const text = this.value;
+  const animationDuration = 1;
 
+  //functions
+  function fadeInAnAppear(element, duration) {
+    element.style.display = "block";
+    // element.style.transition = "opacity " + duration + "s ease-in";
+    element.style.opacity = "1";
+  }
+  function fadeOutAndDisappear(element, duration) {
+    element.style.transition = "opacity " + duration + "s ease-in-out";
+    element.style.opacity = "0";
+    setTimeout(function () {
+      element.style.display = "none";
+    }, duration * 1000);
+  }
+
+  //logic
   if (text === "") {
-    standByGraphics.style.display = block;
+    fadeInAnAppear(standByGraphics, animationDuration);
+  } else {
+    fadeOutAndDisappear(standByGraphics, animationDuration);
   }
 }
 
@@ -88,5 +107,5 @@ function emptyGraphics() {
 
 // const test = "i'm testing something";
 
-// console.log(encriptor(test));
-// console.log(desencriptor(encriptor(test)));
+// console.log(encryptor(test));
+// console.log(dencryptor(encryptor(test)));

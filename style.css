@@ -1,6 +1,7 @@
 @import "normalize.css";
 body {
   background-color: rgb(222, 233, 235);
+  font-family: "Inter", sans-serif;
 }
 
 main {
@@ -31,7 +32,7 @@ main {
   border: 0;
 }
 
-.encriptButton {
+.encryptButton {
   font-family: inherit;
   width: 120px;
   height: 44px;
@@ -50,7 +51,5 @@ main {
 }
 
 .standByGraphics {
-  background-color: green;
-  width: 100px;
-  height: 100px;
+  display: block;
 }/*# sourceMappingURL=style.css.map */

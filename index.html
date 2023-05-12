@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Encripted</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <title>encrypted</title>
   </head>
   <body>
     <main>
@@ -15,11 +21,11 @@
         <textarea name="userInput" id="userInput" class="textInput"> </textarea>
         <!-- buttons -->
         <div class="buttons">
-          <button type="submit" class="encriptButton" id="encriptButton">
-            Encripted
+          <button type="submit" class="encryptButton" id="encryptButton">
+            encrypted
           </button>
-          <button type="submit" class="encriptButton" id="desencriptButton">
-            Desencript
+          <button type="submit" class="encryptButton" id="dencryptButton">
+            dencrypt
           </button>
         </div>
         <br />
@@ -28,7 +34,9 @@
       <!-- sideResult -->
       <div class="sideResult">
         <div class="standByGraphics" id="standByGraphics">
-          Your result goes here
+          <img src="img/Muñeco.png" alt="guy searching" />
+          <h2>No message founded</h2>
+          <p>Enter the text you want to encrypt o decrypt</p>
         </div>
         <div id="displayResult"></div>
       </div>
