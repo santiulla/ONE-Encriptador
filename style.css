@@ -1,1 +1,56 @@
-@import "normalize.css";/*# sourceMappingURL=style.css.map */
+@import "normalize.css";
+body {
+  background-color: rgb(222, 233, 235);
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  display: block;
+  margin-bottom: 30px;
+}
+
+.inputContainer {
+  padding: 100px 50px;
+  width: auto;
+  flex: 1 0;
+}
+
+.textInput {
+  height: 65vh;
+  width: 600px;
+  border-width: 0;
+  background-color: inherit;
+  border-color: inherit;
+  display: block;
+}
+.textInput:focus {
+  border: 0;
+}
+
+.encriptButton {
+  font-family: inherit;
+  width: 120px;
+  height: 44px;
+  background-color: white;
+  border-radius: 20px;
+  border: 0;
+  margin: 1em;
+}
+
+.sideResult {
+  width: 30vw;
+  margin: auto;
+  height: 65vh;
+  background-color: white;
+  margin: 100px 30px 0 0;
+}
+
+.standByGraphics {
+  background-color: green;
+  width: 100px;
+  height: 100px;
+}/*# sourceMappingURL=style.css.map */

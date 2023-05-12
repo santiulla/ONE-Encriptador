@@ -9,9 +9,29 @@
   </head>
   <body>
     <main>
-      <input type="text" name="userInput" id="userInput" />
+      <div class="inputContainer">
+        <!-- input -->
+        <label for="userInput" class="title"> Write the text</label>
+        <textarea name="userInput" id="userInput" class="textInput"> </textarea>
+        <!-- buttons -->
+        <div class="buttons">
+          <button type="submit" class="encriptButton" id="encriptButton">
+            Encripted
+          </button>
+          <button type="submit" class="encriptButton" id="desencriptButton">
+            Desencript
+          </button>
+        </div>
+        <br />
+      </div>
 
-      <div class="sideResult"></div>
+      <!-- sideResult -->
+      <div class="sideResult">
+        <div class="standByGraphics" id="standByGraphics">
+          Your result goes here
+        </div>
+        <div id="displayResult"></div>
+      </div>
 
       <div class="buttonContainer"></div>
     </main>
