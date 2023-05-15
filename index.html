@@ -17,8 +17,13 @@
     <main>
       <div class="inputContainer">
         <!-- input -->
-        <label for="userInput" class="title"> Write the text</label>
-        <textarea name="userInput" id="userInput" class="textInput"> </textarea>
+
+        <textarea
+          name="userInput"
+          id="userInput"
+          class="textInput"
+          placeholder="Enter the text here..."
+        ></textarea>
         <!-- buttons -->
         <div class="buttons">
           <button type="submit" class="encryptButton" id="encryptButton">
@@ -35,10 +40,12 @@
       <div class="sideResult">
         <div class="standByGraphics" id="standByGraphics">
           <img src="img/Muñeco.png" alt="guy searching" />
-          <h2>No message founded</h2>
-          <p>Enter the text you want to encrypt o decrypt</p>
+          <div class="sideResult-text">
+            <h2 class="sideResult-text-title">No message founded</h2>
+            <p>Enter the text you want to encrypt o decrypt</p>
+          </div>
         </div>
-        <div id="displayResult"></div>
+        <div class="displayResult" id="displayResult"></div>
       </div>
 
       <div class="buttonContainer"></div>

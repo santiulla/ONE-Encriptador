@@ -77,26 +77,32 @@ emptyTextarea.addEventListener("input", emptyGraphics);
 function emptyGraphics() {
   //parameters
   const text = this.value;
-  const animationDuration = 1;
+  const animationDuration = 500;
 
   //functions
   function fadeInAnAppear(element, duration) {
-    element.style.display = "block";
-    // element.style.transition = "opacity " + duration + "s ease-in";
-    element.style.opacity = "1";
+    setTimeout(function () {
+      element.style.display = "block";
+    }, duration);
+    setTimeout(function () {
+      element.style.opacity = "1";
+    }, duration + 100);
   }
+
   function fadeOutAndDisappear(element, duration) {
-    element.style.transition = "opacity " + duration + "s ease-in-out";
+    console.log(userInput.value.length);
+    element.style.transition = "all " + duration + "ms ease-in-out";
     element.style.opacity = "0";
+
     setTimeout(function () {
       element.style.display = "none";
-    }, duration * 1000);
+    }, duration + 100);
   }
 
   //logic
-  if (text === "") {
+  if (text.length === 0) {
     fadeInAnAppear(standByGraphics, animationDuration);
-  } else {
+  } else if (text.length === 1) {
     fadeOutAndDisappear(standByGraphics, animationDuration);
   }
 }
