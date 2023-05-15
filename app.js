@@ -1,6 +1,5 @@
 // convert text into an array separated by spaces
 function encryptor(text) {
-  console.log("encryptor");
   let toArray = text.toLowerCase().split("");
 
   // loop
@@ -50,7 +49,7 @@ const resultDiv = document.getElementById("displayResult");
 const standByGraphics = document.getElementById("standByGraphics");
 const resultSuccessful = document.getElementById("resultSuccessful");
 const encryptedText = document.getElementById("encryptedText");
-const copyToClipboard = document.getElementById("copyToClipboard");
+const copyToClipboardBtn = document.getElementById("copyToClipboard");
 
 // Add "ready to encrypt" message when writing
 
@@ -75,6 +74,9 @@ function displayResult(result, button) {
   resultSuccessful.innerHTML = resultSuccessfulText;
   // show result
   encryptedText.innerText = result;
+
+  //show copyToClipboardBtn
+  copyToClipboardBtn.style.display = "block";
 }
 
 // get submit button and launch encryptor function
@@ -113,7 +115,6 @@ function emptyGraphics() {
   }
 
   function fadeOutAndDisappear(element, duration) {
-    console.log(userInput.value.length);
     element.style.transition = "all " + duration + "ms ease-in-out";
     element.style.opacity = "0";
 
@@ -132,14 +133,35 @@ function emptyGraphics() {
     fadeOutAndDisappear(standByGraphics, animationDuration);
     resultSuccessful.innerHTML = "";
     encryptedText.innerText = "";
+    copyToClipboardBtn.style.display = "none";
   }
 }
 
-//show the result in the HTML
+//copy to clipboard
 
-// testing App
+copyToClipboardBtn.addEventListener("click", () => {
+  copyToClipboard(encryptedText.textContent);
+});
 
-// const test = "i'm testing something";
+function copyToClipboard(text) {
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      console.log("Text copied to clipboard");
+    })
+    .catch((error) => {
+      console.error("Failed to copy text: ", error);
+    });
 
-// console.log(encryptor(test));
-// console.log(dencryptor(encryptor(test)));
+  showFloatingMessage("Text copied to clipboard");
+}
+
+function showFloatingMessage(message) {
+  const floatingMessage = document.getElementById("floatingMessage");
+  floatingMessage.textContent = message;
+  floatingMessage.style.display = "block";
+
+  setTimeout(function () {
+    floatingMessage.style.display = "none";
+  }, 2000); // Hide after 2 seconds
+}
