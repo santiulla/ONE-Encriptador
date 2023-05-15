@@ -1,8 +1,7 @@
 // convert text into an array separated by spaces
 function encryptor(text) {
+  console.log("encryptor");
   let toArray = text.toLowerCase().split("");
-
-  // every array to be encrypted
 
   // loop
   let encryptedArray = toArray.map((letter) => {
@@ -31,7 +30,7 @@ function encryptor(text) {
   });
 
   encryptedString = encryptedArray.join("");
-  displayResult(encryptedString);
+  displayResult(encryptedString, "encrypted");
 }
 
 function dencryptor(text) {
@@ -43,17 +42,39 @@ function dencryptor(text) {
     .replaceAll("ober", "o")
     .replaceAll("ufat", "u");
 
-  displayResult(dencryptedString);
+  displayResult(dencryptedString, "decrypted");
 }
 
 // declare sideResult DOMS
-const resultDOM = document.getElementById("displayResult");
-let standByGraphics = document.getElementById("standByGraphics");
+const resultDiv = document.getElementById("displayResult");
+const standByGraphics = document.getElementById("standByGraphics");
+const resultSuccessful = document.getElementById("resultSuccessful");
+const encryptedText = document.getElementById("encryptedText");
+const copyToClipboard = document.getElementById("copyToClipboard");
 
-// trigger result
-function displayResult(result) {
-  resultDOM.innerText = result;
-  standByGraphics.style.display = none;
+// Add "ready to encrypt" message when writing
+
+const readyToEncryptMsg = document.createElement("h2");
+readyToEncryptMsg.appendChild(
+  document.createTextNode("Ready to Encrypt / Decrypt")
+);
+let isReadyToEncryptShowing = false;
+
+// To trigger the message use the below
+// resultDiv.appendChild(readyToEncryptMsg);
+
+// Show result
+function displayResult(result, button) {
+  //remove ready to encript message
+  if (isReadyToEncryptShowing) {
+    resultDiv.removeChild(readyToEncryptMsg);
+    isReadyToEncryptShowing = false;
+  }
+  //result successful title
+  const resultSuccessfulText = `Well done, here is your ${button} text`;
+  resultSuccessful.innerHTML = resultSuccessfulText;
+  // show result
+  encryptedText.innerText = result;
 }
 
 // get submit button and launch encryptor function
@@ -83,6 +104,8 @@ function emptyGraphics() {
   function fadeInAnAppear(element, duration) {
     setTimeout(function () {
       element.style.display = "block";
+      resultDiv.removeChild(readyToEncryptMsg);
+      isReadyToEncryptShowing = false;
     }, duration);
     setTimeout(function () {
       element.style.opacity = "1";
@@ -96,6 +119,9 @@ function emptyGraphics() {
 
     setTimeout(function () {
       element.style.display = "none";
+
+      resultDiv.appendChild(readyToEncryptMsg);
+      isReadyToEncryptShowing = true;
     }, duration + 100);
   }
 
@@ -104,6 +130,8 @@ function emptyGraphics() {
     fadeInAnAppear(standByGraphics, animationDuration);
   } else if (text.length === 1) {
     fadeOutAndDisappear(standByGraphics, animationDuration);
+    resultSuccessful.innerHTML = "";
+    encryptedText.innerText = "";
   }
 }
 

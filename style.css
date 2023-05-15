@@ -15,6 +15,10 @@ main {
   margin-bottom: 30px;
 }
 
+.encryptedText {
+  font-size: 20px;
+}
+
 .inputContainer {
   width: auto;
   flex: 1 0;
