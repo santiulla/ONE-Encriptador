@@ -1,10 +1,10 @@
-// convert text into an array separated by spaces
+// Convert text into an array separated by spaces
 function encryptor(text) {
   let toArray = text.toLowerCase().split("");
 
-  // loop
+  // Loop through the array and apply encryption rules
   let encryptedArray = toArray.map((letter) => {
-    //rules
+    // Encryption rules
     if (letter === "a") {
       return (letter = "ai");
     }
@@ -28,12 +28,17 @@ function encryptor(text) {
     }
   });
 
-  encryptedString = encryptedArray.join("");
+  // Join the encrypted array back into a string
+  let encryptedString = encryptedArray.join("");
+
+  // Display the encrypted result
   displayResult(encryptedString, "encrypted");
 }
 
+// Decrypt the encrypted text
 function dencryptor(text) {
-  dencryptedString = text
+  // Decrypt by replacing the encrypted patterns with the original letters
+  let decryptedString = text
     .toLowerCase()
     .replaceAll("ai", "a")
     .replaceAll("enter", "e")
@@ -41,45 +46,47 @@ function dencryptor(text) {
     .replaceAll("ober", "o")
     .replaceAll("ufat", "u");
 
-  displayResult(dencryptedString, "decrypted");
+  // Display the decrypted result
+  displayResult(decryptedString, "decrypted");
 }
 
-// declare sideResult DOMS
+// Declare DOM elements for displaying results
 const resultDiv = document.getElementById("displayResult");
 const standByGraphics = document.getElementById("standByGraphics");
 const resultSuccessful = document.getElementById("resultSuccessful");
 const encryptedText = document.getElementById("encryptedText");
 const copyToClipboardBtn = document.getElementById("copyToClipboard");
 
-// Add "ready to encrypt" message when writing
-
+// Create a "Ready to Encrypt / Decrypt" message
 const readyToEncryptMsg = document.createElement("h2");
 readyToEncryptMsg.appendChild(
   document.createTextNode("Ready to Encrypt / Decrypt")
 );
 let isReadyToEncryptShowing = false;
 
-// To trigger the message use the below
+// To trigger the message, use the following line:
 // resultDiv.appendChild(readyToEncryptMsg);
 
-// Show result
+// Show the encrypted or decrypted result
 function displayResult(result, button) {
-  //remove ready to encript message
+  // Remove the "Ready to Encrypt / Decrypt" message
   if (isReadyToEncryptShowing) {
     resultDiv.removeChild(readyToEncryptMsg);
     isReadyToEncryptShowing = false;
   }
-  //result successful title
+
+  // Set the result successful title
   const resultSuccessfulText = `Well done, here is your ${button} text`;
   resultSuccessful.innerHTML = resultSuccessfulText;
-  // show result
+
+  // Display the result
   encryptedText.innerText = result;
 
-  //show copyToClipboardBtn
+  // Show the "Copy to Clipboard" button
   copyToClipboardBtn.style.display = "block";
 }
 
-// get submit button and launch encryptor function
+// Get the user input and launch encryptor function
 const userInput = document.getElementById("userInput");
 
 let encryptButton = document.getElementById("encryptButton");
@@ -92,18 +99,15 @@ dencryptButton.addEventListener("click", function () {
   dencryptor(userInput.value);
 });
 
-// change icons when is empty
-
+// Change icons when the textarea is empty
 const emptyTextarea = document.getElementById("userInput");
 emptyTextarea.addEventListener("input", emptyGraphics);
 
 function emptyGraphics() {
-  //parameters
   const text = this.value;
   const animationDuration = 500;
 
-  //functions
-  function fadeInAnAppear(element, duration) {
+  function fadeInAndAppear(element, duration) {
     setTimeout(function () {
       element.style.display = "block";
       resultDiv.removeChild(readyToEncryptMsg);
@@ -126,9 +130,9 @@ function emptyGraphics() {
     }, duration + 100);
   }
 
-  //logic
+  // Check the length of the input text and apply appropriate graphics
   if (text.length === 0) {
-    fadeInAnAppear(standByGraphics, animationDuration);
+    fadeInAndAppear(standByGraphics, animationDuration);
   } else if (text.length === 1) {
     fadeOutAndDisappear(standByGraphics, animationDuration);
     resultSuccessful.innerHTML = "";
@@ -137,8 +141,7 @@ function emptyGraphics() {
   }
 }
 
-//copy to clipboard
-
+// Copy the encrypted or decrypted text to clipboard
 copyToClipboardBtn.addEventListener("click", () => {
   copyToClipboard(encryptedText.textContent);
 });
@@ -156,6 +159,7 @@ function copyToClipboard(text) {
   showFloatingMessage("Text copied to clipboard");
 }
 
+// Show a floating message
 function showFloatingMessage(message) {
   const floatingMessage = document.getElementById("floatingMessage");
   floatingMessage.textContent = message;

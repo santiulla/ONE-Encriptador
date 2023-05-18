@@ -15,29 +15,35 @@
   </head>
   <body>
     <main>
-      <div class="inputContainer">
+      <section class="leftContainer">
+        <img src="img/Logo.png" alt="Logo" class="logo" />
         <!-- input -->
 
-        <textarea
-          name="userInput"
-          id="userInput"
-          class="textInput"
-          placeholder="Enter the text here..."
-        ></textarea>
-        <!-- buttons -->
-        <div class="buttons">
-          <button type="submit" class="encryptButton" id="encryptButton">
-            encrypted
-          </button>
-          <button type="submit" class="encryptButton" id="dencryptButton">
-            dencrypt
-          </button>
+        <div class="input-container">
+          <textarea
+            name="userInput"
+            id="userInput"
+            class="textInput"
+            placeholder="Enter the text here..."
+          ></textarea>
+          <!-- buttons -->
+          <div class="alert-message">
+            <span>ⓘ</span>
+            <p>Only lower case characters</p>
+          </div>
+          <div class="buttons">
+            <button type="submit" class="button encrypt" id="encryptButton">
+              Encrypt
+            </button>
+            <button type="submit" class="button decrypt" id="dencryptButton">
+              Decrypt
+            </button>
+          </div>
         </div>
-        <br />
-      </div>
+      </section>
 
       <!-- sideResult -->
-      <div class="sideResult">
+      <section class="sideResult">
         <div class="standByGraphics" id="standByGraphics">
           <img src="img/Muñeco.png" alt="guy searching" />
           <div class="sideResult-text">
@@ -53,11 +59,11 @@
           </button>
           <div id="floatingMessage"></div>
         </div>
-      </div>
+      </section>
 
       <div class="buttonContainer"></div>
     </main>
 
-    <script src="app.js"></script>
+    <script src="app2.js"></script>
   </body>
 </html>
