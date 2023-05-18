@@ -1,7 +1,12 @@
 @import "normalize.css";
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #f3f5fc;
   font-family: "Inter", sans-serif;
+  box-sizing: border-box;
 }
 
 main {
@@ -9,13 +14,14 @@ main {
   flex-direction: row;
   padding: 40px;
   gap: 40px;
+  height: 100vh;
 }
 
 .input-container {
+  flex: 1;
   margin: 20px 0 0 200px;
   display: flex;
   flex-direction: column;
-  height: calc(100% - 80px);
 }
 
 .title {
@@ -30,10 +36,16 @@ main {
 .leftContainer {
   width: auto;
   flex: 1 0;
+  display: flex;
+  flex-direction: column;
+}
+.leftContainer .logo {
+  height: 48px;
+  width: 120px;
 }
 
 .textInput {
-  flex: 1 0 0;
+  flex: 1 0;
   width: 700px;
   border-width: 0;
   background-color: inherit;
@@ -131,7 +143,6 @@ main {
 .sideResult {
   flex: 1 0;
   width: auto;
-  height: 90vh;
   background-color: white;
   border-radius: 32px;
   box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.0784313725);

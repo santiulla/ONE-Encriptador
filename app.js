@@ -91,7 +91,9 @@ const userInput = document.getElementById("userInput");
 
 let encryptButton = document.getElementById("encryptButton");
 encryptButton.addEventListener("click", function () {
-  encryptor(userInput.value);
+  if (userInput.value !== "") {
+    encryptor(userInput.value);
+  }
 });
 
 let dencryptButton = document.getElementById("dencryptButton");

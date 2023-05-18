@@ -58,12 +58,12 @@ function dencryptor(text) {
 
 // Handle encryption button click
 function handleEncrypt() {
-  encryptor(userInput.value);
+  if (userInput.value !== "") encryptor(userInput.value);
 }
 
 // Handle decryption button click
 function handleDecrypt() {
-  dencryptor(userInput.value);
+  if (userInput.value !== "") dencryptor(userInput.value);
 }
 
 // Handle input change in textarea
