@@ -74,6 +74,7 @@ function handleInputChange() {
   if (text.length === 0) {
     fadeInAndAppear(standByGraphics, animationDuration);
   } else if (text.length === 1) {
+    //lll
     fadeOutAndDisappear(standByGraphics, animationDuration);
     clearResult();
   }
@@ -83,7 +84,11 @@ function handleInputChange() {
 function displayResult(result, button) {
   clearResult();
 
+  //here
+  resultDiv.style.display = "flex";
+
   resultSuccessful.innerHTML = `Well done, here is your ${button} text`;
+  resultSuccessful.style.marginTop = "2em";
 
   encryptedText.innerText = result;
   copyToClipboardBtn.style.display = "block";
@@ -104,6 +109,7 @@ function clearResult() {
 // Fade in and appear an element
 function fadeInAndAppear(element, duration) {
   setTimeout(() => {
+    resultDiv.style.display = "none";
     element.style.display = "block";
     resultDiv.removeChild(readyToEncryptMsg);
     isReadyToEncryptShowing = false;
@@ -120,6 +126,7 @@ function fadeOutAndDisappear(element, duration) {
 
   setTimeout(() => {
     element.style.display = "none";
+    resultDiv.style.display = "flex";
     resultDiv.appendChild(readyToEncryptMsg);
     isReadyToEncryptShowing = true;
   }, duration + 100);
