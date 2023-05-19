@@ -84,6 +84,7 @@ function displayResult(result, button) {
   clearResult();
 
   resultSuccessful.innerHTML = `Well done, here is your ${button} text`;
+
   encryptedText.innerText = result;
   copyToClipboardBtn.style.display = "block";
 }
