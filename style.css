@@ -19,7 +19,7 @@ main {
 
 .input-container {
   flex: 1;
-  margin: 20px 0 0 200px;
+  margin: 20px 0 0 100px;
   display: flex;
   flex-direction: column;
 }
@@ -42,8 +42,10 @@ main {
   flex-direction: column;
 }
 .leftContainer .logo {
-  height: 48px;
-  width: 120px;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .textInput {

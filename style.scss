@@ -27,7 +27,7 @@ main {
 
 .input-container {
   flex: 1;
-  margin: 20px 0 0 200px;
+  margin: 20px 0 0 100px;
   display: flex;
   flex-direction: column;
 }
@@ -50,15 +50,14 @@ main {
   flex-direction: column;
 
   .logo {
-    height: 48px;
-    width: 120px;
+    height: fit-content;
+    width: fit-content;
   }
 }
 
 .textInput {
   flex: 1 0;
-  // height: 65vh;
-  // width: 700px;
+
   border-width: 0;
   background-color: inherit;
   border-color: inherit;
