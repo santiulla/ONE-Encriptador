@@ -162,6 +162,7 @@ main {
   width: auto;
 
   background-color: white;
+  padding: 1em;
 
   border-radius: 32px;
   box-shadow: 0px 24px 32px -8px #00000014;
@@ -196,12 +197,9 @@ main {
   display: block;
 }
 
-@media screen and (max-width: 576px) {
-  /* CSS rules for screens up to 576px wide (mobile) */
-}
-
-@media screen and (min-width: 577px) and (max-width: 992px) {
+@media screen and (max-width: 992px) {
   /* CSS rules for screens between 577px and 992px wide (tablet) */
+
   main {
     flex-direction: column;
   }
@@ -217,5 +215,17 @@ main {
 
   .leftContainer {
     flex: 2 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  /* CSS rules for screens up to 576px wide (mobile) */
+  .buttons {
+    flex-direction: column;
+    gap: 8px;
+
+    .button {
+      margin-bottom: 0;
+    }
   }
 }
