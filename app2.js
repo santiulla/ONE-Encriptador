@@ -11,11 +11,11 @@ const emptyTextarea = document.getElementById("userInput");
 const floatingMessage = document.getElementById("floatingMessage");
 
 // Messages
-const readyToEncryptMsg = document.createElement("h2");
-readyToEncryptMsg.appendChild(
-  document.createTextNode("Ready to Encrypt / Decrypt")
-);
-let isReadyToEncryptShowing = false;
+// const readyToEncryptMsg = document.createElement("h2");
+// readyToEncryptMsg.appendChild(
+//   document.createTextNode("Ready to Encrypt / Decrypt")
+// );
+// let isReadyToEncryptShowing = false;
 
 // Event Listeners
 encryptButton.addEventListener("click", handleEncrypt);
@@ -96,11 +96,6 @@ function displayResult(result, button) {
 
 // Clear the result
 function clearResult() {
-  if (isReadyToEncryptShowing) {
-    resultDiv.removeChild(readyToEncryptMsg);
-    isReadyToEncryptShowing = false;
-  }
-
   resultSuccessful.innerHTML = "";
   encryptedText.innerText = "";
   copyToClipboardBtn.style.display = "none";
@@ -111,8 +106,6 @@ function fadeInAndAppear(element, duration) {
   setTimeout(() => {
     resultDiv.style.display = "none";
     element.style.display = "block";
-    resultDiv.removeChild(readyToEncryptMsg);
-    isReadyToEncryptShowing = false;
   }, duration);
   setTimeout(() => {
     element.style.opacity = "1";
@@ -127,8 +120,12 @@ function fadeOutAndDisappear(element, duration) {
   setTimeout(() => {
     element.style.display = "none";
     resultDiv.style.display = "flex";
-    resultDiv.appendChild(readyToEncryptMsg);
-    isReadyToEncryptShowing = true;
+
+    resultSuccessful.innerHTML = `Ready to go`;
+    resultSuccessful.style.marginTop = "2em";
+
+    encryptedText.innerText =
+      "press the buttons to encrypt or decrypt your message";
   }, duration + 100);
 }
 
