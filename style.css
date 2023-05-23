@@ -125,7 +125,7 @@ main {
   flex: unset;
   font-family: inherit;
   padding: 24px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   display: none;
   width: 100%;
 }
